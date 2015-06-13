@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'projects#index'
   devise_for :users
+
+  get 'new' => 'projects#new'
+  post 'create' => 'projects#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

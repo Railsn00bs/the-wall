@@ -1,3 +1,4 @@
+<%= link_to 'Create a new project', {:action => :new} %>
 <% Project.all.each do |project| %>
   <p>
     <%= project.name %>

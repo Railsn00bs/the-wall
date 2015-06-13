@@ -1,0 +1,26 @@
+<%= form_for @project, url: {action: "create"} do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :contact %>
+    <%= f.text_area :contact %>
+  </div>
+
+  <div>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <%= f.submit "Create Project" %>
+  </div>
+<% end %>
+
