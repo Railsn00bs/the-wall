@@ -1,0 +1,15 @@
+<% Project.all.each do |project| %>
+  <p>
+    <%= project.name %>
+  </p>
+
+  <p>
+    <%= project.description %>
+  </p>
+
+  <p>
+    <%= project.contact %>
+  </p>
+
+  <%= link_to 'Project homepage', project.url %>
+<% end %>
