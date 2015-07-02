@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(
-      :github_username => auth[:info][:nickname],
-      :email => auth[:info][:email]
-    ).first_or_create
+      :github_username => auth[:info][:nickname]
+    ).first_or_create do |user|
+      user.email = auth[:info][:email]
+    end
   end
 end
