@@ -8,6 +8,21 @@ Bundler.require(*Rails.groups)
 
 module TheWall
   class Application < Rails::Application
+    config.app_domain = 'railsn00bs-wall.herokuapp.com'
+
+    # Email
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.default_url_options = { host: config.app_domain }
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com', 
+      port: '587',
+      enable_starttls_auto: true,
+      user_name: 'someuser',
+      password: 'somepass',
+      authentication: :plain,
+      domain: 'railsn00bs-wall.herokuapp.com'
+    }#
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -1,4 +1,15 @@
-<%= link_to 'Create a new project', {:action => :new} %>
+<% if current_user %>
+  <div>
+    You are signed in as <%= current_user.email %>
+  </div>
+
+  <div>
+    <%= link_to 'Create a new project', {:action => :new} %>
+  </div>
+<% else %>
+  <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+<% end %>
+
 <% Project.all.each do |project| %>
   <p>
     <%= project.name %>
