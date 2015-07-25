@@ -1,6 +1,6 @@
 <% if current_user %>
   <div>
-    You are signed in as <%= current_user.github_username %>
+    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %>
   </div>
 
   <div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/authentication" }
 
   get 'new' => 'projects#new'
+  get 'profile' => 'projects#profile'
   post 'create' => 'projects#create'
 
   devise_scope :user do
