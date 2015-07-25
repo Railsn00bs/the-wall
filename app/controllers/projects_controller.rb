@@ -15,4 +15,8 @@ class ProjectsController < ApplicationController
 
     redirect_to :action => :index
   end
+
+  def show
+    @project = Project.find(params[:id])
+  end
 end

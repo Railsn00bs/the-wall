@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'new' => 'projects#new'
   get 'profile' => 'projects#profile'
+  get 'project/:id' => 'projects#show'
   post 'create' => 'projects#create'
 
   devise_scope :user do

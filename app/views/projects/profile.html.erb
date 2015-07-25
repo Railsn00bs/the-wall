@@ -39,5 +39,5 @@
     <%= project.contact %>
   </p>
 
-  <%= link_to 'Project homepage', project.url %>
+  <%= link_to 'Project homepage', {:action => :show, :id => project.id} %>
 <% end %>
