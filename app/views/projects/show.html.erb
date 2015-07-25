@@ -11,4 +11,8 @@
     <%= @project.contact %>
   </p>
 
+   <p>
+    <%= link_to @project.user.name, profile_path %>
+  </p>
+
   <%= link_to 'Project homepage', @project.url %>
