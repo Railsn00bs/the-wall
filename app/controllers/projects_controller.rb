@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    Project.create!(
+    current_user.projects.create!(
       params.require(:project).permit(:name, :description, :contact, :url),
     )
 

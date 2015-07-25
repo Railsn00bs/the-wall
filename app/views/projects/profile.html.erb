@@ -26,7 +26,7 @@
   <h3>My Projects</h3>
   <hr>
 </div>
-<% Project.all.each do |project| %>
+<% current_user.projects.each do |project| %>
   <p>
     <%= project.name %>
   </p>
