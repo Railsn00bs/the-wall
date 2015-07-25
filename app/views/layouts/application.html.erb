@@ -8,6 +8,23 @@
 </head>
 <body>
 
+<% if current_user %>
+  <div>
+    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %>
+    <hr>
+  </div>
+
+  <div>
+    <%= link_to 'Create a new project', {:action => :new} %>
+  </div>
+<% else %>
+  <% if Rails.env.production? %>
+    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+  <% else %>
+    <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post %>
+  <% end %>
+<% end %>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 

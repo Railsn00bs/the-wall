@@ -1,26 +1,8 @@
-<% if current_user %>
-  <div>
-    You are signed in as <%= current_user.github_username %>
-    <hr>
-  </div>
-
-  <div>
-    <h3>About Me</h3>
-    <p>Nam a urna velit. Quisque fermentum augue quis est tempor rutrum. Nullam sollicitudin lorem nec erat tempus tristique. Nam sed efficitur urna. Donec sollicitudin fermentum ligula vitae scelerisque. Aenean condimentum turpis et nisi eleifend pulvinar. Nam elit magna, consequat in neque at, luctus fermentum quam. Ut ornare volutpat magna, eget facilisis lectus facilisis eget. Suspendisse congue a mi at facilisis. Nunc ac ex a quam posuere dapibus.</p>
-    <hr>
-  </div>
-
-  <div>
-    <%= link_to 'Create a new project', {:action => :new} %>
-  </div>
-<% else %>
-  <% if Rails.env.production? %>
-    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
-  <% else %>
-    <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post %>
-  <% end %>
-<% end %>
-
+<div>
+  <h3>About Me</h3>
+  <p>Nam a urna velit. Quisque fermentum augue quis est tempor rutrum. Nullam sollicitudin lorem nec erat tempus tristique. Nam sed efficitur urna. Donec sollicitudin fermentum ligula vitae scelerisque. Aenean condimentum turpis et nisi eleifend pulvinar. Nam elit magna, consequat in neque at, luctus fermentum quam. Ut ornare volutpat magna, eget facilisis lectus facilisis eget. Suspendisse congue a mi at facilisis. Nunc ac ex a quam posuere dapibus.</p>
+  <hr>
+</div>
 
 <div>
   <h3>My Projects</h3>
