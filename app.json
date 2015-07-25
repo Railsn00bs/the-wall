@@ -5,9 +5,7 @@
     "LANG":{
       "required":true
     },
-    "RACK_ENV":{
-      "required":true
-    },
+    "RACK_ENV": "development",
     "RAILS_ENV": "development",
     "RAILS_SERVE_STATIC_FILES":{
       "required":true
