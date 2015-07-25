@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :load_project, only: [:update, :edit]
 
   def index
   end
@@ -9,10 +10,31 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    Project.create!(
-      params.require(:project).permit(:name, :description, :contact, :url),
+    current_user.projects.create!(
+      project_params,
     )
 
     redirect_to :action => :index
+  end
+
+  def edit
+  end
+
+  def update
+    if @project.update(project_params)
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
+  end
+
+  private
+
+  def load_project
+    @project = current_user.projects.find(params[:id])
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :description, :contact, :url)
   end
 end

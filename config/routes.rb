@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   root 'projects#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/authentication" }
 
-  get 'new' => 'projects#new'
-  post 'create' => 'projects#create'
+  # get 'new' => 'projects#new'
+  # post 'create' => 'projects#create'
+
+  resources :projects
 
   devise_scope :user do
     post 'dev_sign_in' => 'users/authentication#dev_sign_in'
+    post 'dev_two_sign_in' => 'users/authentication#dev_two_sign_in'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

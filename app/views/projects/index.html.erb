@@ -11,8 +11,10 @@
     <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
   <% else %>
     <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post %>
+    <%= link_to "Sign in (Second dev)", dev_two_sign_in_path, :method => :post %>
   <% end %>
 <% end %>
+
 
 <% Project.all.each do |project| %>
   <p>
@@ -26,6 +28,10 @@
   <p>
     <%= project.contact %>
   </p>
+
+  <% if current_user == project.user %>
+    <%= link_to 'Edit', edit_project_path(project) %>
+  <% end %>
 
   <%= link_to 'Project homepage', project.url %>
 <% end %>
