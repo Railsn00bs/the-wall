@@ -8,18 +8,10 @@
   <h3>My Projects</h3>
   <hr>
 </div>
-<% current_user.projects.each do |project| %>
-  <p>
-    <%= project.name %>
-  </p>
-
-  <p>
-    <%= project.description %>
-  </p>
-
-  <p>
-    <%= project.contact %>
-  </p>
-
-  <%= link_to 'Project homepage', {:action => :show, :id => project.id} %>
-<% end %>
+<ul>
+  <li>
+    <% current_user.projects.each do |project| %>
+      <%= link_to project.name, {:action => :show, :id => project.id} %>
+    <% end %>
+  </li>
+</ul>
