@@ -22,6 +22,7 @@
     <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
   <% else %>
     <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post %>
+    <%= link_to "Sign in (Second dev)", dev_two_sign_in_path, :method => :post %>
   <% end %>
 <% end %>
 

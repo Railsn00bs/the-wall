@@ -12,4 +12,12 @@ class Users::AuthenticationController < Devise::OmniauthCallbacksController
 
     redirect_to :back
   end
+
+  def dev_two_sign_in
+    redirect_to :controller => :projects, :action => :index unless Rails.env.development?
+
+    sign_in(User.find_by(name: "Second dev"))
+
+    redirect_to :back
+  end
 end
