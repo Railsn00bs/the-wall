@@ -10,7 +10,7 @@
 
 <% if current_user %>
   <div>
-    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %>
+    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %> | <%= link_to 'Home', {:action => :index} %>
     <hr>
   </div>
 
