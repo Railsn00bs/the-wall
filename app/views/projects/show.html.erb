@@ -1,18 +1,18 @@
 
   <p>
-    <%= @project.name %>
+    Project name: <%= @project.name %>
   </p>
 
   <p>
-    <%= @project.description %>
+    Project Description: <%= @project.description %>
   </p>
 
   <p>
-    <%= @project.contact %>
+    Contact person: <%= @project.contact %>
   </p>
 
    <p>
-    <%= link_to @project.user.name, profile_path %>
+    Author: <%= link_to @project.user.name, profile_path %>
   </p>
 
   <%= link_to 'Project homepage', @project.url %>
