@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'profile' => 'projects#profile'
 
+  post 'this_is_cool' => 'this_is_cool#create'
+
   devise_scope :user do
     post 'dev_sign_in' => 'users/authentication#dev_sign_in'
     post 'dev_two_sign_in' => 'users/authentication#dev_two_sign_in'
