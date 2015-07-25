@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   root 'projects#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/authentication" }
 
-  # get 'new' => 'projects#new'
-  # post 'create' => 'projects#create'
-
   resources :projects
+
+  get 'profile' => 'projects#profile'
 
   devise_scope :user do
     post 'dev_sign_in' => 'users/authentication#dev_sign_in'

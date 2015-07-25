@@ -1,0 +1,17 @@
+<div>
+  <h3>About Me</h3>
+  <p>Nam a urna velit. Quisque fermentum augue quis est tempor rutrum. Nullam sollicitudin lorem nec erat tempus tristique. Nam sed efficitur urna. Donec sollicitudin fermentum ligula vitae scelerisque. Aenean condimentum turpis et nisi eleifend pulvinar. Nam elit magna, consequat in neque at, luctus fermentum quam. Ut ornare volutpat magna, eget facilisis lectus facilisis eget. Suspendisse congue a mi at facilisis. Nunc ac ex a quam posuere dapibus.</p>
+  <hr>
+</div>
+
+<div>
+  <h3>My Projects</h3>
+  <hr>
+</div>
+<ul>
+  <li>
+    <% current_user.projects.each do |project| %>
+      <%= link_to project.name, {:action => :show, :id => project.id} %>
+    <% end %>
+  </li>
+</ul>

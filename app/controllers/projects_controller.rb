@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :load_project, only: [:update, :edit]
+  before_action :load_project, only: [:update, :edit, :show]
 
   def index
   end
@@ -15,6 +15,9 @@ class ProjectsController < ApplicationController
     )
 
     redirect_to :action => :index
+  end
+
+  def show
   end
 
   def edit
