@@ -12,3 +12,9 @@ User.find_or_create_by!(
   email: "test@example.org",
   github_username: "NotARealUsername"
 )
+
+User.find_or_create_by!(
+  name: "Second dev",
+  email: "test2@example.org",
+  github_username: "AnotherUser"
+)

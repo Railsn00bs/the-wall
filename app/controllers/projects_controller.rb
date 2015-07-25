@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :load_project, only: [:update, :edit, :show]
+  before_action :load_project, only: [:update, :edit]
 
   def index
   end
@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
   end
 
   def edit
