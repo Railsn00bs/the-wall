@@ -8,13 +8,13 @@
   <h3>My Projects</h3>
   <hr>
 </div>
-<% unless current_user.projects %> 
+<% if current_user.projects.empty? %> 
   No Projects to display yet...
 <% end %>
 <ul>
-  <li>
-    <% current_user.try(:projects).each do |project| %>
+  <% current_user.try(:projects).each do |project| %>
+    <li>
       <%= link_to project.name, {:action => :show, :id => project.id} %>
-    <% end %>
-  </li>
+    </li>
+  <% end %>
 </ul>
