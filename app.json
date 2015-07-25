@@ -1,13 +1,13 @@
 {
   "name":"the-wall",
-  "scripts":{},
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+  },
   "env":{
     "LANG":{
       "required":true
     },
-    "RACK_ENV":{
-      "required":true
-    },
+    "RACK_ENV": "development",
     "RAILS_ENV": "development",
     "RAILS_SERVE_STATIC_FILES":{
       "required":true
