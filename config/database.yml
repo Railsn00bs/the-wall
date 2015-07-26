@@ -11,8 +11,10 @@ development:
   database: the_wall_development
   pool: 5
 
+
 test:
   adapter: postgresql
   encoding: unicode
   database: the_wall_test
   pool: 5
+

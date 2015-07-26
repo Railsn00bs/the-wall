@@ -1,0 +1,2 @@
+module ThisIsCoolHelper
+end

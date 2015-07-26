@@ -15,5 +15,10 @@
     <%= link_to 'Edit', edit_project_path(project) %>
   <% end %>
 
-  <%= link_to 'Project homepage', project.url %>
+  <%= link_to 'Project homepage', project.url %> |
+  <% if project.user_liked? current_user %>
+      I think this project is cool.
+  <% else %>
+      <%= link_to 'This Is Cool', this_is_cool_path(project_id: project.id), method: :post %>
+  <% end %>
 <% end %>
