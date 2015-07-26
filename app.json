@@ -7,8 +7,9 @@
     "LANG":{
       "required":true
     },
-    "RACK_ENV": "development",
-    "RAILS_ENV": "development",
+    "RACK_ENV": "production",
+    "RAILS_ENV": "production",
+    "DISABLE_GITHUB_LOGIN": "true",
     "RAILS_SERVE_STATIC_FILES":{
       "required":true
     },
