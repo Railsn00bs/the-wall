@@ -6,7 +6,7 @@ class Users::AuthenticationController < Devise::OmniauthCallbacksController
   end
 
   def dev_sign_in
-    redirect_to :controller => :projects, :action => :index unless Rails.env.development?
+    redirect_to :controller => :projects, :action => :index unless GithubSignin.disabled?
 
     sign_in(User.find_by(name: "Dev"))
 
@@ -14,7 +14,7 @@ class Users::AuthenticationController < Devise::OmniauthCallbacksController
   end
 
   def dev_two_sign_in
-    redirect_to :controller => :projects, :action => :index unless Rails.env.development?
+    redirect_to :controller => :projects, :action => :index unless GithubSignin.disabled?
 
     sign_in(User.find_by(name: "Second dev"))
 

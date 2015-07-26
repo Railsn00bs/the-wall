@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create!(
+User.find_or_create_by!(
   name: "Dev",
   email: "test@example.org",
   github_username: "NotARealUsername"

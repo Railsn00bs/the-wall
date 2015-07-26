@@ -18,7 +18,7 @@
     <%= link_to 'Create a new project', {:action => :new} %>
   </div>
 <% else %>
-  <% if Rails.env.production? %>
+  <% if GithubSignin.enabled? %>
     <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
   <% else %>
     <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post %>
