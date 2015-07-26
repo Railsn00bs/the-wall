@@ -12,7 +12,7 @@
   </p>
 
    <p>
-    Author: <%= link_to @project.user.name, profile_path %>
+    Author: <%= link_to @project.user.github_username, profile_path %>
   </p>
 
   <%= link_to 'Project homepage', @project.url %>

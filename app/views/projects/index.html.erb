@@ -1,14 +1,17 @@
+<h2>Welcome, <%= current_user.github_username %></h2>
+<hr>
+<br>
 <% Project.all.each do |project| %>
   <p>
-    <%= project.name %>
+   Project name: <%= project.name %>
   </p>
 
   <p>
-    <%= project.description %>
+    Project Description: <%= project.description %>
   </p>
 
   <p>
-    <%= project.contact %>
+   Contact person: <%= project.contact %>
   </p>
 
   <% if current_user == project.user %>
@@ -16,4 +19,5 @@
   <% end %>
 
   <%= link_to 'Project homepage', project_path(project) %>
+  <hr>
 <% end %>
