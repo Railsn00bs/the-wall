@@ -1,26 +1,47 @@
 <%= form_for @project do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div id="project">
+<div class="col-lg-6">
+<div class="well bs-component">
+<form class="form-horizontal">
+<fieldset>
+<legend> Create a new project </legend>
+  <div class="form-group">
+     <%= f.label :name, class: "col-lg-2 control-label" %>
+     <div class="col-lg-10">
+     <%= f.text_field :name, class: "form-controll" %>
+     </div>
   </div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_area :description, class: "form-controll", rows: "4" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :contact %>
-    <%= f.text_area :contact %>
+  <div class="form-group">
+    <%= f.label :contact, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_area :contact, class: "form-controll" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :url %>
-    <%= f.text_field :url %>
+  <div class="form-group">
+    <%= f.label :url, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_field :url, class: "form-controll" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.submit "Submit" %>
+  <div class="col-lg-10 col-lg-offset-2">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
+  </fieldset>
+  </form>
+</div>
+</div>
+</div>
+
+
 <% end %>
 
