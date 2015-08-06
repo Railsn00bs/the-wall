@@ -17,6 +17,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+    background-image: url("thewall.jpeg");
+}
+
+header {
+    background-color: #fff;
+    opacity: 0.8;
+    height: 60px;
+}
+
 #logo {
     font-size: 26px;
     font-weight: 700;
@@ -33,16 +43,6 @@
     margin-left: 20%;
     opacity: 0.8;
  }
-
-body {
-    background-image: url("thewall.jpeg");
-}
-
-header {
-    background-color: #fff;
-    opacity: 0.8;
-    height: 60px;
-}
 
 #content {
     margin-top: 50px;

@@ -1,47 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TheWall</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<header class="navbar-fixed-top">
-    <div >
-      <div class="container-fluid">
-        <div id="logo" class="navbar-brand"><%= link_to "The Wall", root_path %></div>
-        <nav class="navbar-right">
-<% if current_user %>
-  <div>
-    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %>
+  <html>
+    <head>
+      <title>TheWall</title>
 
-  </div>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <div class="navbar-right">
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-    <%= link_to 'New project', {:action => :new}, class: "btn btn-default btn-primary" %>
-    <%= link_to 'Home', {:action => :index}, class: "btn btn-default btn-info" %>
-  </div>
-<% else %>
-  <% if Rails.env.production? %>
-    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), class: "btn btn-default btn-sm" %>
-  <% else %>
-    <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post, class: "btn btn-default btn-sm" %>
-    <%= link_to "Sign in (Second dev)", dev_two_sign_in_path, :method => :post, class: "btn btn-default btn-sm" %>
-  <% end %>
-<% end %>
-        </nav>
+      <%= csrf_meta_tags %>
+
+    </head>
+
+    <body>
+      <header class="navbar-fixed-top">
+        <div class="container-fluid">
+
+          <div id="logo" class="navbar-brand">
+
+            <%= link_to "The Wall", root_path %>
+
+          </div>
+
+          <nav class="navbar-right">
+
+            <% if current_user %>
+
+              <div>You are signed in as
+
+                <%= link_to current_user.github_username, {:action => :profile} %>
+
+              </div>
+
+              <div class="navbar-right">
+
+              <%= link_to 'New project', {:action => :new}, class: "btn btn-default btn-primary" %>
+
+              <%= link_to 'Home', {:action => :index}, class: "btn btn-default btn-info" %>
+
+              </div>
+
+            <% else %>
+
+              <% if Rails.env.production? %>
+
+                <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), class: "btn btn-default btn-sm" %>
+
+              <% else %>
+
+                <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post, class: "btn btn-default btn-sm" %>
+
+                <%= link_to "Sign in (Second dev)", dev_two_sign_in_path, :method => :post, class: "btn btn-default btn-sm" %>
+
+              <% end %>
+            <% end %>
+
+          </nav>
+        </div>
+      </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div class="bs-component">
+
+      <div id="content" >
+
+        <%= yield %>
+
       </div>
     </div>
-  </header>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<div class="bs-component">
-<div id="content" >
-<%= yield %>
-</div>
-</div>
-</body>
+  </body>
 </html>

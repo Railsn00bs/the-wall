@@ -1,14 +1,24 @@
+<div class="panel panel-success" id="project">
 
-  <p>
-    <%= @project.name %>
-  </p>
+  <div class="panel-heading">
+    <h2 class="panel-title">
 
-  <p>
-    <%= @project.description %>
-  </p>
+      <%= project.name %>
 
-  <p>
-    <%= @project.contact %>
-  </p>
+    </h2>
+  </div>
 
-  <%= link_to 'Project homepage', @project.url %>
+  <div class="panel-body">
+
+    <%= project.description %>
+
+    <%= project.contact %>
+
+    <div class="btn-group navbar-right" >
+
+      <%= link_to 'Visit', project.url, class: "btn btn-sm btn-warning" %>
+
+    </div>
+
+  </div>
+</div>
