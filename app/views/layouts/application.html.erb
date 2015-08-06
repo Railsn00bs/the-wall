@@ -7,29 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header class="navbar-fixed-top">
+    <div >
+      <div class="container-fluid">
+        <div id="logo" class="navbar-brand"><%= link_to "The Wall", root_path %></div>
+        <nav class="navbar-right">
 <% if current_user %>
   <div>
-    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %> | <%= link_to 'Home', {:action => :index} %>
-    <hr>
+    You are signed in as <%= link_to current_user.github_username, {:action => :profile} %>
+
   </div>
 
-  <div>
-    <%= link_to 'Create a new project', {:action => :new} %>
+  <div class="navbar-right">
+
+    <%= link_to 'New project', {:action => :new}, class: "btn btn-default btn-primary" %>
+    <%= link_to 'Home', {:action => :index}, class: "btn btn-default btn-info" %>
   </div>
 <% else %>
   <% if Rails.env.production? %>
-    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), class: "btn btn-default btn-sm" %>
   <% else %>
-    <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post %>
-    <%= link_to "Sign in (Second dev)", dev_two_sign_in_path, :method => :post %>
+    <%= link_to "Sign in (dev)", dev_sign_in_path, :method => :post, class: "btn btn-default btn-sm" %>
+    <%= link_to "Sign in (Second dev)", dev_two_sign_in_path, :method => :post, class: "btn btn-default btn-sm" %>
   <% end %>
 <% end %>
+        </nav>
+      </div>
+    </div>
+  </header>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
+<div class="bs-component">
+<div id="content" >
 <%= yield %>
-
+</div>
+</div>
 </body>
 </html>
