@@ -1,19 +1,32 @@
 <% Project.all.each do |project| %>
-  <p>
-    <%= project.name %>
-  </p>
 
-  <p>
-    <%= project.description %>
-  </p>
+  <div class="panel panel-success" id="project">
 
-  <p>
-    <%= project.contact %>
-  </p>
+    <div class="panel-heading">
+      <h2 class="panel-title">
 
-  <% if current_user == project.user %>
-    <%= link_to 'Edit', edit_project_path(project) %>
-  <% end %>
+        <%= project.name %>
 
-  <%= link_to 'Project homepage', project.url %>
+      </h2>
+    </div>
+
+    <div class="panel-body">
+
+      <%= project.description %>
+
+      <%= project.contact %>
+
+      <div class="btn-group navbar-right" >
+
+        <% if current_user == project.user %>
+          <%= link_to 'Edit', edit_project_path(project), class: "btn btn-sm btn-success" %>
+        <% end %>
+
+        <%= link_to 'Visit', project.url, class: "btn btn-sm btn-warning" %>
+
+      </div>
+
+    </div>
+  </div>
+
 <% end %>

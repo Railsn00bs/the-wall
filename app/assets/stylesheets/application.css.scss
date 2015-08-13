@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    background-image: url("thewall.jpeg");
+}
+
+header {
+    background-color: #fff;
+    opacity: 0.8;
+    height: 60px;
+}
+
+#logo {
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding: 15px 0;
+    a {
+        color: #2F363E;
+    }
+}
+
+#project {
+    max-width: 60%;
+    margin-left: 20%;
+    opacity: 0.8;
+ }
+
+#content {
+    margin-top: 50px;
+}
