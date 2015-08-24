@@ -18,12 +18,11 @@
 @import "bootstrap";
 
 body {
-    background-image: url("thewall.jpeg");
+    background-color: #f6eee8;
 }
 
 header {
     background-color: #fff;
-    opacity: 0.8;
     height: 60px;
 }
 
@@ -41,7 +40,6 @@ header {
 #project {
     max-width: 60%;
     margin-left: 20%;
-    opacity: 0.8;
  }
 
 #content {
