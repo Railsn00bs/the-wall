@@ -17,8 +17,8 @@
 
   <%= link_to 'Project homepage', project.url %> |
   <% if project.user_liked? current_user %>
-      I think this project is cool.
+      Liked
   <% else %>
-      <%= link_to 'This Is Cool', this_is_cool_path(project_id: project.id), method: :post %>
+      <%= link_to 'Like', like_path(project_id: project.id), method: :post %>
   <% end %>
 <% end %>

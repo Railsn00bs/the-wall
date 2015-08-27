@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'profile' => 'projects#profile'
 
-  post 'this_is_cool' => 'this_is_cool#create'
+  post 'like' => 'like#create'
 
   devise_scope :user do
     post 'dev_sign_in' => 'users/authentication#dev_sign_in'
