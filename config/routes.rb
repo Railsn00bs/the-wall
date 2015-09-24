@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'projects#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/authentication" }
 
-  resources :projects
+  resources :projects do
+    resources :comments, only: :create
+  end
 
   get 'profile' => 'projects#profile'
 
