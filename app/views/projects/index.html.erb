@@ -26,7 +26,27 @@
 
       </div>
 
+      <div class="panel-body">
+        <% project.comments.each do |comment| %>
+            <blockquote class="blockquote">
+              <p> <%= comment.body %> </p>
+              <footer> <%= comment.user.github_username %> </footer>
+            </blockquote>
+        <% end %>
+      </div>
     </div>
+
+    <div class="panel-body">
+      <% if current_user %>
+        <%= form_for [project, Comment.new], html: { class: "form-inline" }  do |f| %>
+          <div class="form-group">
+            <%= f.text_field :body, placeholder: "I like this because...." %>
+          </div>
+          <%= f.submit "GO"  %>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 
 <% end %>
