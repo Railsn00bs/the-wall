@@ -1,18 +1,19 @@
+<div class="panel panel-success" id="project">
+  <div class="panel-heading">
+    <h2 class="panel-title">
+      <%= project.name %>
+    </h2>
+  </div>
 
-  <p>
-    Project name: <%= @project.name %>
-  </p>
+  <div class="panel-body">
+    <%= project.description %>
 
-  <p>
-    Project Description: <%= @project.description %>
-  </p>
+    <%= project.contact %>
 
-  <p>
-    Contact person: <%= @project.contact %>
-  </p>
+    <div class="btn-group navbar-right" >
 
-   <p>
-    Author: <%= link_to @project.user.github_username, profile_path %>
-  </p>
-
-  <%= link_to 'Project homepage', @project.url %>
+      <%= link_to 'Visit', project.url, class: "btn btn-sm btn-warning" %>
+      <%= link_to @project.user.github_username, profile_path %>
+    </div>
+  </div>
+</div>

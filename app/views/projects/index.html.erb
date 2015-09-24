@@ -1,25 +1,49 @@
-<br>
 <% Project.all.each do |project| %>
-  <p>
-   Project name: <%= project.name %>
-  </p>
+  <div class="panel panel-success" id="project">
 
-  <p>
-    Project Description: <%= project.description %>
-  </p>
+    <div class="panel-heading">
+      <h2 class="panel-title">
 
-  <p>
-   Author: <%= link_to project.user.github_username, profile_path %>
-  </p>
+        <%= link_to project.user.github_username, profile_path %>/<%= project.name %>
 
-  <p>
-   Contact person: <%= project.contact %>
-  </p>
+      </h2>
+    </div>
 
-  <% if current_user == project.user %>
-    <%= link_to 'Edit', edit_project_path(project) %>
-  <% end %>
+    <div class="panel-body">
 
-  <%= link_to 'Project homepage', project_path(project) %>
-  <hr>
+      <%= project.description %>
+
+      <%= project.contact %>
+
+      <div class="btn-group navbar-right" >
+
+        <% if current_user == project.user %>
+          <%= link_to 'Edit', edit_project_path(project), class: "btn btn-sm btn-success" %>
+        <% end %>
+
+        <%= link_to 'Visit', project.url, class: "btn btn-sm btn-warning" %>
+
+      </div>
+
+      <div class="panel-body">
+        <% project.comments.each do |comment| %>
+            <blockquote class="blockquote">
+              <p> <%= comment.body %> </p>
+              <footer> <%= comment.user.github_username %> </footer>
+            </blockquote>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <% if current_user %>
+        <%= form_for [project, Comment.new], html: { class: "form-inline" }  do |f| %>
+          <div class="form-group">
+            <%= f.text_field :body, placeholder: "I like this because...." %>
+          </div>
+          <%= f.submit "GO"  %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
