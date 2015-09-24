@@ -7,12 +7,12 @@
 
   <div class="panel-heading"><h3>Projects</h3></div>
     <div class="panel-body">
-      <% if current_user.projects.empty? %>
+      <% if @user.projects.empty? %>
         No Projects to display yet...
       <% end %>
 
       <ul>
-        <% current_user.try(:projects).each do |project| %>
+        <% @user.projects.each do |project| %>
           <li>
             <%= link_to project.name, {:action => :show, :id => project.id} %>
           </li>

@@ -3,9 +3,7 @@
 
     <div class="panel-heading">
       <h2 class="panel-title">
-
-        <%= link_to project.user.github_username, profile_path %>/<%= project.name %>
-
+        <%= link_to project.user.github_username, profile_show_path(project.user.github_username) %>/<%= project.name %>
       </h2>
     </div>
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
 
-  get 'profile' => 'projects#profile'
+  get 'profile/:username' => 'profiles#show', :as => :profile_show
 
   devise_scope :user do
     post 'dev_sign_in' => 'users/authentication#dev_sign_in'
