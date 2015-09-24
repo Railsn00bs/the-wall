@@ -1,12 +1,9 @@
 <% Project.all.each do |project| %>
-
   <div class="panel panel-success" id="project">
 
     <div class="panel-heading">
       <h2 class="panel-title">
-
-        <%= project.name %>
-
+        <%= link_to project.user.github_username, profile_show_path(project.user.github_username) %>/<%= project.name %>
       </h2>
     </div>
 
@@ -46,7 +43,5 @@
         <% end %>
       <% end %>
     </div>
-
   </div>
-
 <% end %>

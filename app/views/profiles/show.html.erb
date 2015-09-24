@@ -1,0 +1,23 @@
+<div class="panel panel-success" id="project">
+  <div class="panel-heading"><h3>About Me</h3></div>
+
+  <div class="panel-body">
+    Nam a urna velit. Quisque fermentum augue quis est tempor rutrum. Nullam sollicitudin lorem nec erat tempus tristique. Nam sed efficitur urna. Donec sollicitudin fermentum ligula vitae scelerisque. Aenean condimentum turpis et nisi eleifend pulvinar. Nam elit magna, consequat in neque at, luctus fermentum quam. Ut ornare volutpat magna, eget facilisis lectus facilisis eget. Suspendisse congue a mi at facilisis. Nunc ac ex a quam posuere dapibus.
+  </div>
+
+  <div class="panel-heading"><h3>Projects</h3></div>
+    <div class="panel-body">
+      <% if @user.projects.empty? %>
+        No Projects to display yet...
+      <% end %>
+
+      <ul>
+        <% @user.projects.each do |project| %>
+          <li>
+            <%= link_to project.name, {:controller => :projects, :action => :show, :id => project.id} %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
