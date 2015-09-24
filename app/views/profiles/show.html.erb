@@ -14,7 +14,7 @@
       <ul>
         <% @user.projects.each do |project| %>
           <li>
-            <%= link_to project.name, {:action => :show, :id => project.id} %>
+            <%= link_to project.name, {:controller => :projects, :action => :show, :id => project.id} %>
           </li>
         <% end %>
       </ul>
