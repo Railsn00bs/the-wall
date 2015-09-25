@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'dev_sign_in' => 'users/authentication#dev_sign_in'
     post 'dev_two_sign_in' => 'users/authentication#dev_two_sign_in'
+    delete 'logout', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
