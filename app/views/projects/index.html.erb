@@ -33,7 +33,6 @@
               </div>
               <p class="comment_body"> <%= comment.body %> </p>
             </blockquote>
-            <!-- <hr> -->
         <% end %>
       </div>
 
@@ -41,7 +40,7 @@
         <% if current_user %>
           <%= form_for [project, Comment.new], html: { class: "form-inline" }  do |f| %>
           <blockquote class="blockquote">
-            <div class="form-group input-group">
+            <div class="form-group">
               <%= github_avatar_for(current_user.github_username) %>
               <%= f.text_field :body, placeholder: "I like this because....", html: { class: "comment_box"  } %>
                 <%= f.submit "Post"  %>
