@@ -26,22 +26,32 @@
       <div class="panel-body">
         <% project.comments.each do |comment| %>
             <blockquote class="blockquote">
-              <p> <%= comment.body %> </p>
-              <footer> <%= comment.user.github_username %> </footer>
+              <div class="author_info">
+                <%= github_avatar_for(comment.user.github_username) %>
+                <%= comment.user.github_username %> ・
+                <span><%= comment.created_at.strftime("%a, %d %b %l:%M %P") %></span>
+              </div>
+              <p class="comment_body"> <%= comment.body %> </p>
             </blockquote>
+            <!-- <hr> -->
+        <% end %>
+      </div>
+
+      <div class="panel-body">
+        <% if current_user %>
+          <%= form_for [project, Comment.new], html: { class: "form-inline" }  do |f| %>
+          <blockquote class="blockquote">
+            <div class="form-group input-group">
+              <%= github_avatar_for(current_user.github_username) %>
+              <%= f.text_field :body, placeholder: "I like this because....", html: { class: "comment_box"  } %>
+                <%= f.submit "Post"  %>
+            </blockquote>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
 
-    <div class="panel-body">
-      <% if current_user %>
-        <%= form_for [project, Comment.new], html: { class: "form-inline" }  do |f| %>
-          <div class="form-group">
-            <%= f.text_field :body, placeholder: "I like this because...." %>
-          </div>
-          <%= f.submit "GO"  %>
-        <% end %>
-      <% end %>
-    </div>
+
   </div>
 <% end %>
